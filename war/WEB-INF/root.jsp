@@ -16,19 +16,25 @@
 					Welcome ${user.email} <br/>
 					You can signout <a href="${logout_url}">here</a><br/>
 				</p>
-				<form action="/" method="post"> 
-					<!-- this is how you get a single line of text from the user -->
-					Enter a string here to check for anagrams: <input type="text" name="text_input"/>
-					<input type="submit" value="Check"/><br/>
-				</form>
+				<table>
+					<tr><form action="/anagrams" method="get"> 
+						<!-- this is to check for anagrams -->
+						<td>Check for anagrams: </td><td><input type="text" name="text_input"/></td>
+						<td><input type="submit" value="Check"/></td>
+					</form></tr>
+					<tr><form action="/anagrams" method="post">
+						<!-- this is to add new words to the engine -->
+						<td>Add to dictionary: </td><td><input type="text" name="text_input"/></td>
+						<td><input type="submit" value="Submit"/><br/></td>
+					</form></tr>
+				</table>
 				<c:if test="${errMsg != null}">
 					<script type="text/javascript">
 						   alert("${errMsg}");
 					</script>
 				</c:if>
-				<c:if test ="${result != null}">
-					<h1>Results</h1>
-					<p>Anagrams of the input word previously stored on the database are: ${result}</p>
+				<c:if test ="${displayMsg != null}">
+					<br/><h3>${displayMsg}</h3>
 				</c:if>
 			</c:when> 
 			<c:otherwise> 
