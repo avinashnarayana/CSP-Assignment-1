@@ -28,5 +28,6 @@ public class WordList {
 	public WordList(Key id){
 		this.id=id;
 	}
+	public int wordcount(){return words.size();}
 	
 }
