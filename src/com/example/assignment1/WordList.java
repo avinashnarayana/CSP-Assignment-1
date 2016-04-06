@@ -30,5 +30,7 @@ public class WordList {
 	}
 	public int wordcount(){return words.size();}
 	public String getWord(final int index){return words.get(index);}
-	
+	public void addWord(final String word){
+		if(!words.contains(word))words.add(word);
+	}
 }
