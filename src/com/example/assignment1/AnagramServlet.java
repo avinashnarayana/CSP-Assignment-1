@@ -10,12 +10,14 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 
 @SuppressWarnings("serial")
-public class RootServlet extends HttpServlet {
+public class AnagramServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException, ServletException {
 		resp.setContentType("text/plain");
@@ -39,8 +41,42 @@ public class RootServlet extends HttpServlet {
 		req.setAttribute("user", u); 
 		req.setAttribute("login_url", login_url); 
 		req.setAttribute("logout_url", logout_url);
+		req.setAttribute("errMsg", "Wow anagram servlet works!!");
+		// attach a few things to the request such that we can access them in the jsp 
 		// get access to a request dispatcher and forward onto the root.jsp file 
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/root.jsp"); 
 		rd.forward(req, resp);
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		/*
+		// get the new timezone from the form 
+		int timezone = 0; 
+		try{ 
+			timezone = Integer.parseInt(req.getParameter("new_timezone")); 
+		} catch(NumberFormatException e) { 
+			// failed to update so just redirect to / 
+			resp.sendRedirect("/"); 
+		}
+		
+		// get access to the user service to get our user 
+		UserService us = UserServiceFactory.getUserService(); 
+		User u = us.getCurrentUser();
+		// update the timezone in the datastore and then redirect to / 
+		PersistenceManager pm = null; 
+		ClockUser settings; 
+		Key user_key = KeyFactory.createKey("ClockUser", u.getUserId()); 
+		try { 
+			pm = PMF.get().getPersistenceManager(); 
+			settings = pm.getObjectById(ClockUser.class, user_key); 
+			settings.setOffset(timezone); pm.makePersistent(settings); 
+		} catch (Exception e) { 
+			// will only fail if the datastore goes down as this is 
+			// already in the datastore 
+		}
+		pm.close();*/ 
+		resp.sendRedirect("/");
 	}
 }
