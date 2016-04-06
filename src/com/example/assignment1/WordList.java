@@ -22,5 +22,11 @@ public class WordList {
 	// the list of words
 	@Persistent 
 	private ArrayList<String> words;
+	// anything below this line is for our convenience and will not be used by 
+	// JDO
+	// setter and getter for the id 
+	public WordList(Key id){
+		this.id=id;
+	}
 	
 }
