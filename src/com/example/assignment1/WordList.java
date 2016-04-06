@@ -29,5 +29,6 @@ public class WordList {
 		this.id=id;
 	}
 	public int wordcount(){return words.size();}
+	public String getWord(final int index){return words.get(index);}
 	
 }
