@@ -43,8 +43,6 @@ public class RootServlet extends HttpServlet {
 		req.setAttribute("user", u); 
 		req.setAttribute("login_url", login_url); 
 		req.setAttribute("logout_url", logout_url);
-		// Uncomment the next line to check if the errMsg is working on the root page as expected
-		// req.setAttribute("errMsg", "Hey the error message box seems to work");
 		// get access to a request dispatcher and forward onto the root.jsp file 
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/root.jsp"); 
 		rd.forward(req, resp);
