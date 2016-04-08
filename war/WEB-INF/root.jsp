@@ -19,12 +19,12 @@
 				<table>
 					<tr><form action="/anagrams" method="get"> 
 						<!-- this is to check for anagrams -->
-						<td>Check for anagrams: </td><td><input type="text" name="text_input"/></td>
+						<td>Check for anagrams: </td><td><input type="text" name="check_anagram"/></td>
 						<td><input type="submit" value="Check"/></td>
 					</form></tr>
 					<tr><form action="/anagrams" method="post">
 						<!-- this is to add new words to the engine -->
-						<td>Add to dictionary: </td><td><input type="text" name="text_input"/></td>
+						<td>Add to dictionary: </td><td><input type="text" name="submit_word"/></td>
 						<td><input type="submit" value="Submit"/><br/></td>
 					</form></tr>
 				</table>

@@ -26,11 +26,12 @@ public class WordList {
 	// JDO
 	// setter and getter for the id 
 	public WordList(Key id){
-		this.id=id;
+		this.id=id; words = new ArrayList<>();
 	}
 	public int wordcount(){return words.size();}
 	public String getWord(final int index){return words.get(index);}
 	public void addWord(final String word){
 		if(!words.contains(word))words.add(word);
 	}
+	public boolean contains(String word){return words.contains(word);}
 }
